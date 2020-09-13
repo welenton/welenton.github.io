@@ -1041,6 +1041,7 @@ $("#run").click(function() {
         responsive: true, 
         locale: 'br',
         modeBarButtonsToRemove: ['hoverCompareCartesian', 'toggleSpikelines', 'hoverClosestCartesian', 'autoScale2d'],
+        displaylogo: false
         };
 
     Plotly.newPlot('canvas', data, layout, config);
