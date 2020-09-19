@@ -1,3 +1,5 @@
+var version = 'v1::';
+
 self.addEventListener("install", function(event) {
     console.log('WORKER: install event in progress.');
     event.waitUntil(
@@ -86,36 +88,6 @@ self.addEventListener("install", function(event) {
   
             // Return the response so that the promise is settled in fulfillment.
             return response;
-          }
-  
-          /* When this method is called, it means we were unable to produce a response
-             from either the cache or the network. This is our opportunity to produce
-             a meaningful response even when all else fails. It's the last chance, so
-             you probably want to display a "Service Unavailable" view or a generic
-             error response.
-          */
-          function unableToResolve () {
-            /* There's a couple of things we can do here.
-               - Test the Accept header and then return one of the `offlineFundamentals`
-                 e.g: `return caches.match('/some/cached/image.png')`
-               - You should also consider the origin. It's easier to decide what
-                 "unavailable" means for requests against your origins than for requests
-                 against a third party, such as an ad provider
-               - Generate a Response programmaticaly, as shown below, and return that
-            */
-  
-            console.log('WORKER: fetch request failed in both cache and network.');
-  
-            /* Here we're creating a response programmatically. The first parameter is the
-               response body, and the second one defines the options for the response.
-            */
-            return new Response('<h1>Service Unavailable</h1>', {
-              status: 503,
-              statusText: 'Service Unavailable',
-              headers: new Headers({
-                'Content-Type': 'text/html'
-              })
-            });
           }
         })
     );
