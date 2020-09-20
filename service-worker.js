@@ -4,6 +4,7 @@ const precacheResources = [
   '/',
   'index.html',
   'main.css',
+  'main.js',
   'images/icons-192.png',
   'images/icons-512.png'
 ];
