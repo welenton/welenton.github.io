@@ -1,5 +1,6 @@
 $( "#pop_PLOD" ).change(function() {
-    $("#PLID").prop('disabled', false);
+    $("#PLID").parent().fadeIn(500);
+    $("#length").parent().fadeIn(500);
     let select = $('#pop_PBOD');
     switch ($('#pop_PLOD').val()) {
         case '4': 
@@ -39,7 +40,10 @@ $( "#pop_PLOD" ).change(function() {
 });
 
 $( "#pop_PBOD" ).change(function() {
-    $("#PL").prop('disabled', false);
+    $("#PL").parent().fadeIn(500);
+    $("#linerids").parent().fadeIn(500);
+    $("#pop_ILOD").parent().fadeIn(500);
+    $("#pop_IBOD").parent().fadeIn(500);
     let select = $('#pop_ILOD');
     switch ($('#pop_PBOD').val()) {
         case '4 3/4':
@@ -79,7 +83,7 @@ $( "#pop_PBOD" ).change(function() {
 });
 
 $( "#pop_ILOD" ).change(function() {
-    $("#ILID").prop('disabled', false);
+    $("#ILID").parent().fadeIn(500);
     let select = $('#pop_IBOD');
     switch ($('#pop_ILOD').val()) {
         case '5 1/2':
@@ -125,7 +129,9 @@ $( "#pop_ILOD" ).change(function() {
 });
 
 $( "#pop_IBOD" ).change(function() {
-    $("#IL").prop('disabled', false);
+    $("#IL").parent().fadeIn(500);
+    $("#pop_SLOD").parent().fadeIn(500);
+    $("#pop_SBOD").parent().fadeIn(500);
     let select = $('#pop_SLOD');
     switch ($('#pop_IBOD').val()) {
         case '6 1/2':
@@ -165,7 +171,7 @@ $( "#pop_IBOD" ).change(function() {
 });
 
 $( "#pop_SLOD" ).change(function() {
-    $("#SLID").prop('disabled', false);
+    $("#SLID").parent().fadeIn(500);
     let select = $('#pop_SBOD');
     switch ($('#pop_SLOD').val()) {
         case '7 5/8':
@@ -211,7 +217,9 @@ $( "#pop_SLOD" ).change(function() {
 });
 
 $( "#pop_SBOD" ).change(function() {
-    $("#SuL").prop('disabled', false);
+    $("#SuL").parent().fadeIn(500);
+    $("#pop_CLOD").parent().fadeIn(500);
+    $("#pop_CBOD").parent().fadeIn(500);
     let select = $('#pop_CLOD');
     switch ($('#pop_SBOD').val()) {
         case '8 1/2':
@@ -254,7 +262,7 @@ $( "#pop_SBOD" ).change(function() {
 });
 
 $( "#pop_CLOD" ).change(function() {
-    $("#CLID").prop('disabled', false);
+    $("#CLID").parent().fadeIn(500);
     let select = $('#pop_CBOD');
     switch ($('#pop_CLOD').val()) {
         case '9 5/8':
@@ -297,7 +305,9 @@ $( "#pop_CLOD" ).change(function() {
 });
 
 $( "#pop_CBOD" ).change(function() {
-    $("#CL").prop('disabled', false);
+    $("#CL").parent().fadeIn(500);
+    $("#pop_STLOD").parent().fadeIn(500);
+    $("#pop_STBOD").parent().fadeIn(500);
     let select = $('#pop_STLOD');
     switch ($('#pop_CBOD').val()) {
         case '10 5/8':
@@ -337,7 +347,7 @@ $( "#pop_CBOD" ).change(function() {
 });
 
 $( "#pop_STLOD" ).change(function() {
-    $("#STLID").prop('disabled', false);
+    $("#STLID").parent().fadeIn(500);
     let select = $('#pop_STBOD');
     switch ($('#pop_STLOD').val()) {
         case '11 3/4':
@@ -377,7 +387,7 @@ $( "#pop_STLOD" ).change(function() {
 });
 
 $( "#pop_STBOD" ).change(function() {
-    $("#StL").prop('disabled', false);
+    $("#StL").parent().fadeIn(500);
 });
 
 function add_options(select, values){
@@ -390,6 +400,11 @@ function add_options(select, values){
 }
 
 $("#run").click(function() {
+    
+    $("#results").parent().fadeIn(500);
+    $("#results-table").parent().fadeIn(500);
+    $("#welldesign").parent().fadeIn(500);
+    
     //OD
     var OD_ProductionCasing = $("#pop_PLOD").val();
     if (!OD_ProductionCasing)
@@ -873,6 +888,11 @@ $("#run").click(function() {
     var CasingDisplacementStructural = (((OD_StructuralCasing**2 - ID_StructuralCasing**2)*L_StructuralCasing)/1029.4);
     var CasingDisplacementTotal = (CasingDisplacementProduction + CasingDisplacementIntermediate + CasingDisplacementSurface + CasingDisplacementConductor);
 
+    // oculta as linhas da tabela que estão zeradas
+    !OpenHoleVolumeIntermediate ? $("#intermediate").hide(): $("#intermediate").show();
+    !OpenHoleVolumeSurface ? $("#surface").hide() : $("#surface").show();
+    !OpenHoleVolumeConductor ? $("#conductor").hide() : $("#conductor").show();
+    !OpenHoleVolumeStructural ? $("#structural").hide() : $("#structural").show();
 
     // Preenche os campos de resultados
     //OpenHoleVolume
