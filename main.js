@@ -1,6 +1,6 @@
 $( "#pop_PLOD" ).change(function() {
     $("#PLID").parent().fadeIn(500);
-    $("#length").parent().fadeIn(500);
+    $("#linerids").parent().fadeIn(500);
     let select = $('#pop_PBOD');
     switch ($('#pop_PLOD').val()) {
         case '4': 
@@ -41,7 +41,7 @@ $( "#pop_PLOD" ).change(function() {
 
 $( "#pop_PBOD" ).change(function() {
     $("#PL").parent().fadeIn(500);
-    $("#linerids").parent().fadeIn(500);
+    $("#length").parent().fadeIn(500);
     $("#pop_ILOD").parent().fadeIn(500);
     $("#pop_IBOD").parent().fadeIn(500);
     let select = $('#pop_ILOD');
