@@ -1,3 +1,5 @@
+var x = 0;
+var y = 0;
 $( "#pop_PLOD" ).change(function() {
     $("#PLID").prop('disabled', false);
     let select = $('#pop_PBOD');
@@ -905,35 +907,33 @@ $("#run").click(function() {
     $("#Total_CD").text(CasingDisplacementTotal.toFixed(3));
 
 
-
-
     // Plota o hole
-    var x = [(HoleSizeSTC/2)-(HoleSizePC/2),(HoleSizeSTC/2)+(HoleSizePC/2), (HoleSizeSTC/2)+(HoleSizePC/2),(HoleSizeSTC/2)+(HoleSizeIC/2), (HoleSizeSTC/2)+(HoleSizeIC/2), (HoleSizeSTC/2)+(HoleSizeSC/2), (HoleSizeSTC/2)+(HoleSizeSC/2), (HoleSizeSTC/2)+(HoleSizeCC/2), (HoleSizeSTC/2)+(HoleSizeCC/2), HoleSizeSTC, HoleSizeSTC,0,0, (HoleSizeSTC/2)-(HoleSizeCC/2), (HoleSizeSTC/2)-(HoleSizeCC/2), (HoleSizeSTC/2)-(HoleSizeSC/2), (HoleSizeSTC/2)-(HoleSizeSC/2), (HoleSizeSTC/2)-(HoleSizeIC/2), (HoleSizeSTC/2)-(HoleSizeIC/2), (HoleSizeSTC/2)-(HoleSizePC/2), (HoleSizeSTC/2)-(HoleSizePC/2)];
-    var y = [L_ProductionCasing+L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_ProductionCasing+L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_ConductorCasing+L_StructuralCasing, L_ConductorCasing+L_StructuralCasing, L_StructuralCasing, L_StructuralCasing, 0, 0, L_StructuralCasing, L_StructuralCasing, L_StructuralCasing+L_ConductorCasing, L_StructuralCasing+L_ConductorCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing+L_IntermediateCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing+L_IntermediateCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing+L_IntermediateCasing+L_ProductionCasing];
+    x = [((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizePC/2),((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)+(HoleSizePC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)+(HoleSizePC/2),((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)+(HoleSizeIC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)+(HoleSizeIC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)+(HoleSizeSC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)+(HoleSizeSC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)+(HoleSizeCC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)+(HoleSizeCC/2), (HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC), (HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC),0,0, ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizeCC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizeCC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizeSC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizeSC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizeIC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizeIC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizePC/2), ((HoleSizeSTC || HoleSizeCC || HoleSizeSC || HoleSizeIC || HoleSizePC)/2)-(HoleSizePC/2)];
+    y = [L_ProductionCasing+L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_ProductionCasing+L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, L_ConductorCasing+L_StructuralCasing, L_ConductorCasing+L_StructuralCasing, L_StructuralCasing, L_StructuralCasing, 0, 0, L_StructuralCasing, L_StructuralCasing, L_StructuralCasing+L_ConductorCasing, L_StructuralCasing+L_ConductorCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing+L_IntermediateCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing+L_IntermediateCasing, L_StructuralCasing+L_ConductorCasing+L_SurfaceCasing+L_IntermediateCasing+L_ProductionCasing];
 
     // Plota os casings
-    var x1 = [(OD_StructuralCasing/2)-(OD_ProductionCasing/2), (OD_StructuralCasing/2)-(OD_ProductionCasing/2)];
+    var x1 = [((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)-(OD_ProductionCasing/2), ((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)-(OD_ProductionCasing/2)];
     var y1 = [L_ProductionCasing+L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, 0];
 
-    var x2 = [(OD_StructuralCasing/2)+(OD_ProductionCasing/2), (OD_StructuralCasing/2)+(OD_ProductionCasing/2)];
+    var x2 = [((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)+(OD_ProductionCasing/2), ((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)+(OD_ProductionCasing/2)];
     var y2 = [L_ProductionCasing+L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, 0];
 
-    var x3 = [(OD_StructuralCasing/2)+(OD_IntermediateCasing/2), (OD_StructuralCasing/2)+(OD_IntermediateCasing/2)];
+    var x3 = [((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)+(OD_IntermediateCasing/2), ((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)+(OD_IntermediateCasing/2)];
     var y3 = [L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, 0];
 
-    var x4 = [(OD_StructuralCasing/2)-(OD_IntermediateCasing/2), (OD_StructuralCasing/2)-(OD_IntermediateCasing/2)];
+    var x4 = [((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)-(OD_IntermediateCasing/2), ((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)-(OD_IntermediateCasing/2)];
     var y4 = [L_IntermediateCasing+L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, 0];
 
-    var x5 = [(OD_StructuralCasing/2)-(OD_SurfaceCasing/2), (OD_StructuralCasing/2)-(OD_SurfaceCasing/2)];
+    var x5 = [((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)-(OD_SurfaceCasing/2), ((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)-(OD_SurfaceCasing/2)];
     var y5 = [L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, 0];
 
-    var x6 = [(OD_StructuralCasing/2)+(OD_SurfaceCasing/2), (OD_StructuralCasing/2)+(OD_SurfaceCasing/2)];
+    var x6 = [((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)+(OD_SurfaceCasing/2), ((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)+(OD_SurfaceCasing/2)];
     var y6 = [L_ConductorCasing+L_SurfaceCasing+L_StructuralCasing, 0];
 
-    var x7 = [(OD_StructuralCasing/2)+(OD_ConductorCasing/2), (OD_StructuralCasing/2)+(OD_ConductorCasing/2)];
+    var x7 = [((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)+(OD_ConductorCasing/2), ((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)+(OD_ConductorCasing/2)];
     var y7 = [L_ConductorCasing+L_StructuralCasing, 0];
 
-    var x8 = [(OD_StructuralCasing/2)-(OD_ConductorCasing/2), (OD_StructuralCasing/2)-(OD_ConductorCasing/2)];
+    var x8 = [((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)-(OD_ConductorCasing/2), ((OD_StructuralCasing || OD_ConductorCasing || OD_SurfaceCasing || OD_IntermediateCasing || OD_ProductionCasing)/2)-(OD_ConductorCasing/2)];
     var y8 = [L_ConductorCasing+L_StructuralCasing, 0];
 
     var x9 = [(HoleSizeSTC/2)-(OD_StructuralCasing/2), (HoleSizeSTC/2)-(OD_StructuralCasing/2)];
